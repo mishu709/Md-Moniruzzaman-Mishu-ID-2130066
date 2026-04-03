@@ -8,10 +8,10 @@
 
 // 1. Create variables of different data types: String, int, double, bool
 // TODO: Add your variables here
-String name = "";
-int age = 0;
-double height = 0.0;
-bool isStudent = false;
+String name = "John Doe";
+int age = 25;
+double height = 5.9;
+bool isStudent = true;
 
 // 2. Write a function called calculateBMI that takes weight (double) and height (double) as parameters and returns the BMI as a double
 // TODO: Implement the calculateBMI function
