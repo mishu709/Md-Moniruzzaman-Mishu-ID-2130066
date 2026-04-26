@@ -4,14 +4,20 @@
  * Vehicle Info: 2020 Toyota Camry (4 doors)
  * Starting the car engine...
  * Stopping the car engine...
- * * Vehicle Info: 2021 Honda CBR (Has windshield: true)
+ * 
+ * Vehicle Info: 2021 Honda CBR (Has windshield: true)
  * Starting the motorcycle engine...
  * Stopping the motorcycle engine...
- * * Car age: <Value> years
+ * 
+ * Car age: <Value> years
  * Motorcycle age: <Value> years
  */
 
-// 1. Abstract Class Vehicle
+// 1. Abstract Class Vehicle:
+//    - Properties: String brand, String model, int year
+//    - Abstract method: void start()
+//    - Abstract method: void stop()
+//    - Concrete method: void displayInfo()
 abstract class Vehicle {
   String brand;
   String model;
@@ -19,24 +25,27 @@ abstract class Vehicle {
 
   Vehicle(this.brand, this.model, this.year);
 
-  // Abstract methods - must be implemented by subclasses
+  // Abstract methods
   void start();
   void stop();
 
   // Concrete method
   void displayInfo() {
-    print("Vehicle Info: $year $brand $model");
+    // TODO: Display vehicle information
+    print("Vehicle Informatiion: $year, $brand, $brand");
   }
 
-  // Method to calculate vehicle age
+  // Add a method to calculate vehicle age (current year - vehicle year)
   int calculateAge() {
-    int currentYear = DateTime.now().year;
-    return currentYear - year;
+    // TODO: Calculate and return vehicle age
+    return DateTime.now().year - year;
   }
 }
 
 // 2. Concrete Classes:
-// Car extends Vehicle
+//    - Car extends Vehicle
+//      - Additional property: int numberOfDoors
+//      - Override start() and stop() methods
 class Car extends Vehicle {
   int numberOfDoors;
 
@@ -45,21 +54,26 @@ class Car extends Vehicle {
 
   @override
   void start() {
+    // TODO: Implement car start method
     print("Starting the car engine...");
   }
 
   @override
   void stop() {
+    // TODO: Implement car stop method
     print("Stopping the car engine...");
   }
 
   @override
   void displayInfo() {
-    print("Vehicle Info: $year $brand $model ($numberOfDoors doors)");
+    // TODO: Override to show car-specific info as shown in expected output
+    print("Vehicle Information: $year $brand $model ($numberOfDoors doors)");
   }
 }
 
-// Motorcycle extends Vehicle
+//    - Motorcycle extends Vehicle
+//      - Additional property: bool hasWindshield
+//      - Override start() and stop() methods
 class Motorcycle extends Vehicle {
   bool hasWindshield;
 
@@ -68,36 +82,41 @@ class Motorcycle extends Vehicle {
 
   @override
   void start() {
+    // TODO: Implement motorcycle start method
     print("Starting the motorcycle engine...");
   }
 
   @override
   void stop() {
+    // TODO: Implement motorcycle stop method
     print("Stopping the motorcycle engine...");
   }
 
   @override
   void displayInfo() {
-    print("Vehicle Info: $year $brand $model (Has windshield: $hasWindshield)");
+    // TODO: Override to show motorcycle-specific info as shown in expected output
+    print(
+        "Vehicle Information: $year  $brand $model (Has windshield: $hasWindshield)");
   }
 }
 
 void main() {
-  // 3. Create a list of vehicles demonstrating polymorphism
+  // 3. Create a list of vehicles and demonstrate polymorphism by calling start(), stop(), and displayInfo() on each vehicle
+  // TODO: Create a list containing one Car and one Motorcycle
   List<Vehicle> vehicles = [
     Car("Toyota", "Camry", 2020, 4),
-    Motorcycle("Honda", "CBR", 2021, true),
+    Motorcycle("Honda", "CBR", 2021, true)
   ];
 
-  // Loop through the list and call methods
+  // TODO: Loop through the list and call displayInfo(), start(), and stop()
   for (var vehicle in vehicles) {
     vehicle.displayInfo();
     vehicle.start();
     vehicle.stop();
-    print(""); // Adding a newline for formatting as per expected output
+    print("");
   }
 
-  // Calculate and display ages
+  // TODO: Print the age of each vehicle using calculateAge()
   print("Car age: ${vehicles[0].calculateAge()} years");
   print("Motorcycle age: ${vehicles[1].calculateAge()} years");
 }
